@@ -31,7 +31,8 @@ def clean(raw):
 
     Returns (sales, rejected). Rejected rows keep their original values + a reject_reason.
     """
-    df = raw.drop_duplicates(subset="sale_id").copy()
+    # df = raw.drop_duplicates(subset="sale_id").copy()
+    df = raw.copy()
     sold_at = pd.to_datetime(df["sold_at"], format="%Y-%m-%d %H:%M:%S", errors="coerce")
     quantity = pd.to_numeric(df["quantity"], errors="coerce")
     unit_price = pd.to_numeric(df["unit_price"], errors="coerce")
